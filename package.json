@@ -1,0 +1,23 @@
+{
+  "name": "wright-relay",
+  "version": "1.0.0",
+  "description": "",
+  "main": "wrightRelay.js",
+  "dependencies": {
+    "facebook-chat-api": "^1.6.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BishopOfTurkey/wright-relay.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BishopOfTurkey/wright-relay/issues"
+  },
+  "homepage": "https://github.com/BishopOfTurkey/wright-relay#readme"
+}
