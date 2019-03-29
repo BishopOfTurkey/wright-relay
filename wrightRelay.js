@@ -1,17 +1,18 @@
-const login = require("facebook-chat-api");
+const login = require('facebook-chat-api');
+const config = require('./config.json');
 
 // Create simple echo bot
-login({email: "wrightrelay@protonmail.com", password: "RjF81ZJs!la&qT8wS"}, (err, api) => {
+login({email: config['email'], password: config['password']}, (err, api) => {
     if(err) return console.error(err);
 
     api.listen((err, message) => {
         console.log(message)
         if (err) return console.err(err);
 
-        if (message.threadID == '2230705296989694') { // GC1
-            sendWithName('2050336258412519');
-        } else if (message.threadID == '2050336258412519') { //GC2
-            sendWithName('2230705296989694');
+        if (message.threadID == config['groupchat1']) {
+            sendWithName(config['groupchat2']);
+        } else if (message.threadID == config['groupchat2']) {
+            sendWithName(config['groupchat1']);
         }
         
         function sendWithName (chat) {
