@@ -60,20 +60,21 @@ login({email: config['email'], password: config['password'], appState: appState}
         if (err) return console.error(err);
 
         let newMsg = {};
+        let msgType = message.type
 
         if (message.type == 'message') {
-          newMsg['body'] = ret[id].firstName + ': ' + message.body;
-        } else if (message.type == 'photo') {
+          newMsg['body'] = `${ret[id].firstName} ${ret[id].lastName}: ${message.body}`
+        } else if (msgType == 'photo' || msgType == 'video') {
           // do nothing
         } else {
-          console.log(`Unknown message type ${message.type}`);
+          console.log(`Unknown message type ${msgType}`);
         }
 
         api.sendMessage(newMsg, chat, (err, info) => {
           if (err) return console.error(err);
 
           message.attachments.forEach((msg) => {
-            if (msg.type == 'photo') {
+            if (msg.type == 'photo' || msg.type == 'video') {
               api.forwardAttachment(msg.ID, chat);
             }
           }) 
