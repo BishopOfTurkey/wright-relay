@@ -62,8 +62,8 @@ login({email: config['email'], password: config['password'], appState: appState}
         let newMsg = {};
         let msgType = message.type
 
-        if (message.type == 'message') {
-          newMsg['body'] = `${ret[id].firstName} ${ret[id].lastName}: ${message.body}`
+        if (msgType == 'message') {
+          newMsg['body'] = `${ret[id].name}: ${message.body}`
         } else if (msgType == 'photo' || msgType == 'video') {
           // do nothing
         } else {
